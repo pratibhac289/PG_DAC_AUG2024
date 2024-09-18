@@ -1,0 +1,40 @@
+# Project: bank_system
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o create_account.o delete_account.o deposit_money.o withdraw_money.o
+LINKOBJ  = main.o create_account.o delete_account.o deposit_money.o withdraw_money.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = bank_system.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+create_account.o: create_account.cpp
+	$(CPP) -c create_account.cpp -o create_account.o $(CXXFLAGS)
+
+delete_account.o: delete_account.cpp
+	$(CPP) -c delete_account.cpp -o delete_account.o $(CXXFLAGS)
+
+deposit_money.o: deposit_money.cpp
+	$(CPP) -c deposit_money.cpp -o deposit_money.o $(CXXFLAGS)
+
+withdraw_money.o: withdraw_money.cpp
+	$(CPP) -c withdraw_money.cpp -o withdraw_money.o $(CXXFLAGS)
